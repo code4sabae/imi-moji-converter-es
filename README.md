@@ -70,7 +70,6 @@ $ cd imi-moji-converter
 以下の手順でテストが実行され、テスト結果が出力されます。
 
 ```
-$ cd test
 $ deno test
 
 running 6 tests
