@@ -29,7 +29,7 @@ IMIMojiConverter.toFullWidth 関数によって半角から全角への変換さ
 標準出力に出力されます。
 
 ```main.mjs
-import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter/IMIMojiConverter.mjs";
+import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter-es/IMIMojiConverter.mjs";
 console.log(IMIMojiConverter.toHalfWidth("あかさたな０１２３４５６７８９"));
 console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
 ```
@@ -47,7 +47,7 @@ $
 
 ```main.html
 <script type="module">
-import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter/IMIMojiConverter.mjs";
+import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter-es/IMIMojiConverter.mjs";
 console.log(IMIMojiConverter.toHalfWidth("あかさたな０１２３４５６７８９"));
 console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
 </script>
@@ -61,7 +61,7 @@ console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
 GitHubからcloneします。
 
 ```
-$ git clone https://github.com/code4sabae/imi-moji-converter.git
+$ git clone https://github.com/code4sabae/imi-moji-converter-es.git
 $ cd imi-moji-converter
 ```
 
