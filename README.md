@@ -2,7 +2,8 @@
 
 入力文字列に含まれる全角文字を半角文字に変換した結果を返す関数、
 および、
-入力文字列に含まれる半角文字を全角文字に変換した結果を返す関数を提供するESモジュールです。
+入力文字列に含まれる半角文字を全角文字に変換した結果を返す関数を提供する
+[IMI 全角半角統一コンポーネント](https://github.com/IMI-Tool-Project/imi-moji-converter)をforkしたESモジュールです。
 本コンポーネントはライブラリとして外部コンポーネントから使用されることを想定しています。
 
 [![esmodules](https://taisukef.github.com/denolib/esmodulesbadge.svg)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)
@@ -99,4 +100,4 @@ IMIMojiConverter.mjs : 関数本体
 
 ## 出典
 
-本ライブラリは IMI 情報共有基盤 コンポーネントツール <https://info.gbiz.go.jp/tools/imi_tools/> の「全角-半角統一コンポーネント」をESモジュール対応したものです。
+本ライブラリは IMI 情報共有基盤 コンポーネントツール <https://info.gbiz.go.jp/tools/imi_tools/> の「[IMI 全角半角統一コンポーネント](https://github.com/IMI-Tool-Project/imi-moji-converter)」をESモジュール対応したものです。
