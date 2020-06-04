@@ -4,7 +4,7 @@
 および、
 入力文字列に含まれる半角文字を全角文字に変換した結果を返す関数を提供する
 [IMI 全角半角統一コンポーネント](https://github.com/IMI-Tool-Project/imi-moji-converter)をforkしたESモジュールです。
-本コンポーネントはライブラリとして外部コンポーネントから使用されることを想定しています。
+本コンポーネントはライブラリとして外部コンポーネントから使用されることを想定しています。（ブラウザで試せるサンプル「[IMIコンポーネントツール ES](https://code4sabae.github.io/imi-tools/)」）
 
 [![esmodules](https://taisukef.github.com/denolib/esmodulesbadge.svg)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)
 [![deno](https://taisukef.github.com/denolib/denobadge.svg)](https://deno.land/)
