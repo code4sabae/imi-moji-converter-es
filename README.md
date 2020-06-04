@@ -2,20 +2,13 @@
 
 入力文字列に含まれる全角文字を半角文字に変換した結果を返す関数、
 および、
-入力文字列に含まれる半角文字を全角文字に変換した結果を返す関数を提供します。
+入力文字列に含まれる半角文字を全角文字に変換した結果を返す関数を提供するESモジュールです。
 本コンポーネントはライブラリとして外部コンポーネントから使用されることを想定しています。
 
+[![esmodules](https://taisukef.github.com/denolib/esmodulesbadge.svg)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)
+[![deno](https://taisukef.github.com/denolib/denobadge.svg)](https://deno.land/)
+
 # 利用者向け情報
-
-## インストール
-
-適当な作業フォルダを作成しモジュールをインストールします。
-
-```
-$ mkdir work
-$ cd work
-$ npm install imi-moji-converter-1.0.0.tgz
-```
 
 # API
 
@@ -34,8 +27,8 @@ $ npm install imi-moji-converter-1.0.0.tgz
 IMIMojiConverter.toFullWidth 関数によって半角から全角への変換され、
 標準出力に出力されます。
 
-```main.js
-const IMIMojiConverter = require("imi-moji-converter");
+```main.mjs
+import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter/IMIMojiConverter.mjs";
 console.log(IMIMojiConverter.toHalfWidth("あかさたな０１２３４５６７８９"));
 console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
 ```
@@ -43,10 +36,20 @@ console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
 実行すると以下のような出力が得られます。
 
 ```
-$ node main.js
+$ deno run main.mjs
 ｱｶｻﾀﾅ0123456789
 あかさたな０１２３４５６７８９
 $
+```
+
+ブラウザ上でも同じコードで動作します。
+
+```main.html
+<script type="module">
+import IMIMojiConverter from "https://code4sabae.github.io/imi-moji-converter/IMIMojiConverter.mjs";
+console.log(IMIMojiConverter.toHalfWidth("あかさたな０１２３４５６７８９"));
+console.log(IMIMojiConverter.toFullWidth("ｱｶｻﾀﾅ0123456789"));
+</script>
 ```
 
 
@@ -54,14 +57,11 @@ $
 
 ## 環境構築
 
-ソースアーカイブ `imi-moji-converter-1.0.0.src.tgz` を入手して、
-以下の手順でインストールします。
+GitHubからcloneします。
 
 ```
-$ mkdir imi-moji-converter
+$ git clone https://github.com/code4sabae/imi-moji-converter.git
 $ cd imi-moji-converter
-$ tar xvzf imi-moji-converter-1.0.0.src.tgz
-$ npm install
 ```
 
 ## テスト
@@ -69,36 +69,34 @@ $ npm install
 以下の手順でテストが実行され、テスト結果が出力されます。
 
 ```
-$ npm test
+$ cd test
+$ deno test
 
-> mocha
+running 6 tests
+test 数字 ... ok (2ms)
+test アルファベット ... ok (2ms)
+test カタカナ ... ok (2ms)
+test 数字 ... ok (1ms)
+test アルファベット ... ok (1ms)
+test カタカナ ... ok (1ms)
 
-
-
-  imi-moji-converter
-    toHalfWidth
-      ✓ 数字
-      ✓ アルファベット
-      ✓ カタカナ
-    toFullWidth
-      ✓ 数字
-      ✓ アルファベット
-      ✓ カタカナ
-
-
-  6 passing (11ms)
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (9ms)
 
 $
 ```
 
 ## ファイル構成
 
-開発対象となる Javascript は以下のみです。
+開発対象となる JavaScript は以下のみです。
 
 ```
-main.js : 関数本体
+IMIMojiConverter.mjs : 関数本体
 ```
 
 ## 依存関係
 
-本ライブラリは <https://www.npmjs.com/package/moji> に依存します。
+本ライブラリは <https://github.com/taisukef/moji> に依存します。
+
+## 出典
+
+本ライブラリは IMI 情報共有基盤 コンポーネントツール <https://info.gbiz.go.jp/tools/imi_tools/> の「全角-半角統一コンポーネント」をESモジュール対応したものです。

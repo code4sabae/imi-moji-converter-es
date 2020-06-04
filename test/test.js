@@ -1,75 +1,79 @@
-const toHalfWidth = require("../main").toHalfWidth;
-const toFullWidth = require("../main").toFullWidth;
-const expect = require('chai').expect;
+import { assertStrictEq } from "https://deno.land/std/testing/asserts.ts";
+
+import IMIMojiConverter from "../IMIMojiConverter.mjs";
+
+const toHalfWidth = IMIMojiConverter.toHalfWidth;
+const toFullWidth = IMIMojiConverter.toFullWidth;
+
+const describe = (name, func) => func();
 
 describe('imi-moji-converter', () => {
   describe('toHalfWidth', () => {
-    it("数字", () => {
-      expect(toHalfWidth("０１２３４５６７８９")).to.equal("0123456789");
+    Deno.test("数字", () => {
+      assertStrictEq(toHalfWidth("０１２３４５６７８９"), "0123456789");
     });
-    it("アルファベット", () => {
-      expect(toHalfWidth("ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ")).to.equal("abcdefghijklmnopqrstuvwxyz");
-      expect(toHalfWidth("ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ")).to.equal("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    Deno.test("アルファベット", () => {
+      assertStrictEq(toHalfWidth("ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ"), "abcdefghijklmnopqrstuvwxyz");
+      assertStrictEq(toHalfWidth("ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ"), "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     });
-    it("カタカナ", () => {
-      expect(toHalfWidth("アイウエオ")).to.equal("ｱｲｳｴｵ");
-      expect(toHalfWidth("カキクケコ")).to.equal("ｶｷｸｹｺ");
-      expect(toHalfWidth("サシスセソ")).to.equal("ｻｼｽｾｿ");
-      expect(toHalfWidth("タチツテト")).to.equal("ﾀﾁﾂﾃﾄ");
-      expect(toHalfWidth("ナニヌネノ")).to.equal("ﾅﾆﾇﾈﾉ");
-      expect(toHalfWidth("ハヒフヘホ")).to.equal("ﾊﾋﾌﾍﾎ");
-      expect(toHalfWidth("マミムメモ")).to.equal("ﾏﾐﾑﾒﾓ");
-      expect(toHalfWidth("ヤユヨ")).to.equal("ﾔﾕﾖ");
-      expect(toHalfWidth("ラリルレロ")).to.equal("ﾗﾘﾙﾚﾛ");
-      expect(toHalfWidth("ワヲン")).to.equal("ﾜｦﾝ");
-      expect(toHalfWidth("ァィゥェォッャュョ")).to.equal("ｧｨｩｪｫｯｬｭｮ");
-      expect(toHalfWidth("ガギグゲゴ")).to.equal("ｶﾞｷﾞｸﾞｹﾞｺﾞ");
-      expect(toHalfWidth("ザジズゼゾ")).to.equal("ｻﾞｼﾞｽﾞｾﾞｿﾞ");
-      expect(toHalfWidth("ダヂヅデド")).to.equal("ﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞ");
-      expect(toHalfWidth("バビブベボ")).to.equal("ﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞ");
-      expect(toHalfWidth("パピプペポ")).to.equal("ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ");
-      expect(toHalfWidth("ヴ")).to.equal("ｳﾞ");
-      expect(toHalfWidth("ー")).to.equal("ｰ");
-      expect(toHalfWidth("・")).to.equal("･");
-      expect(toHalfWidth("。")).to.equal("｡");
-      expect(toHalfWidth("、")).to.equal("､");
-      expect(toHalfWidth("「")).to.equal("｢");
-      expect(toHalfWidth("」")).to.equal("｣");
+    Deno.test("カタカナ", () => {
+      assertStrictEq(toHalfWidth("アイウエオ"), "ｱｲｳｴｵ");
+      assertStrictEq(toHalfWidth("カキクケコ"), "ｶｷｸｹｺ");
+      assertStrictEq(toHalfWidth("サシスセソ"), "ｻｼｽｾｿ");
+      assertStrictEq(toHalfWidth("タチツテト"), "ﾀﾁﾂﾃﾄ");
+      assertStrictEq(toHalfWidth("ナニヌネノ"), "ﾅﾆﾇﾈﾉ");
+      assertStrictEq(toHalfWidth("ハヒフヘホ"), "ﾊﾋﾌﾍﾎ");
+      assertStrictEq(toHalfWidth("マミムメモ"), "ﾏﾐﾑﾒﾓ");
+      assertStrictEq(toHalfWidth("ヤユヨ"), "ﾔﾕﾖ");
+      assertStrictEq(toHalfWidth("ラリルレロ"), "ﾗﾘﾙﾚﾛ");
+      assertStrictEq(toHalfWidth("ワヲン"), "ﾜｦﾝ");
+      assertStrictEq(toHalfWidth("ァィゥェォッャュョ"), "ｧｨｩｪｫｯｬｭｮ");
+      assertStrictEq(toHalfWidth("ガギグゲゴ"), "ｶﾞｷﾞｸﾞｹﾞｺﾞ");
+      assertStrictEq(toHalfWidth("ザジズゼゾ"), "ｻﾞｼﾞｽﾞｾﾞｿﾞ");
+      assertStrictEq(toHalfWidth("ダヂヅデド"), "ﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞ");
+      assertStrictEq(toHalfWidth("バビブベボ"), "ﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞ");
+      assertStrictEq(toHalfWidth("パピプペポ"), "ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ");
+      assertStrictEq(toHalfWidth("ヴ"), "ｳﾞ");
+      assertStrictEq(toHalfWidth("ー"), "ｰ");
+      assertStrictEq(toHalfWidth("・"), "･");
+      assertStrictEq(toHalfWidth("。"), "｡");
+      assertStrictEq(toHalfWidth("、"), "､");
+      assertStrictEq(toHalfWidth("「"), "｢");
+      assertStrictEq(toHalfWidth("」"), "｣");
     });
   });
-
   describe('toFullWidth', () => {
-    it("数字", () => {
-      expect(toFullWidth("0123456789")).to.equal("０１２３４５６７８９");
+    Deno.test("数字", () => {
+      assertStrictEq(toFullWidth("0123456789"), "０１２３４５６７８９");
     });
-    it("アルファベット", () => {
-      expect(toFullWidth("abcdefghijklmnopqrstuvwxyz")).to.equal("ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ");
-      expect(toFullWidth("ABCDEFGHIJKLMNOPQRSTUVWXYZ")).to.equal("ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ");
+    Deno.test("アルファベット", () => {
+      assertStrictEq(toFullWidth("abcdefghijklmnopqrstuvwxyz"), "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ");
+      assertStrictEq(toFullWidth("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ");
     });
-    it("カタカナ", () => {
-      expect(toFullWidth("ｱｲｳｴｵ")).to.equal("アイウエオ");
-      expect(toFullWidth("ｶｷｸｹｺ")).to.equal("カキクケコ");
-      expect(toFullWidth("ｻｼｽｾｿ")).to.equal("サシスセソ");
-      expect(toFullWidth("ﾀﾁﾂﾃﾄ")).to.equal("タチツテト");
-      expect(toFullWidth("ﾅﾆﾇﾈﾉ")).to.equal("ナニヌネノ");
-      expect(toFullWidth("ﾊﾋﾌﾍﾎ")).to.equal("ハヒフヘホ");
-      expect(toFullWidth("ﾏﾐﾑﾒﾓ")).to.equal("マミムメモ");
-      expect(toFullWidth("ﾔﾕﾖ")).to.equal("ヤユヨ");
-      expect(toFullWidth("ﾗﾘﾙﾚﾛ")).to.equal("ラリルレロ");
-      expect(toFullWidth("ﾜｦﾝ")).to.equal("ワヲン");
-      expect(toFullWidth("ｧｨｩｪｫｯｬｭｮ")).to.equal("ァィゥェォッャュョ");
-      expect(toFullWidth("ｶﾞｷﾞｸﾞｹﾞｺﾞ")).to.equal("ガギグゲゴ");
-      expect(toFullWidth("ｻﾞｼﾞｽﾞｾﾞｿﾞ")).to.equal("ザジズゼゾ");
-      expect(toFullWidth("ﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞ")).to.equal("ダヂヅデド");
-      expect(toFullWidth("ﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞ")).to.equal("バビブベボ");
-      expect(toFullWidth("ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ")).to.equal("パピプペポ");
-      expect(toFullWidth("ｳﾞ")).to.equal("ヴ");
-      expect(toFullWidth("ｰ")).to.equal("ー");
-      expect(toFullWidth("･")).to.equal("・");
-      expect(toFullWidth("｡")).to.equal("。");
-      expect(toFullWidth("､")).to.equal("、");
-      expect(toFullWidth("｢")).to.equal("「");
-      expect(toFullWidth("｣")).to.equal("」");
+    Deno.test("カタカナ", () => {
+      assertStrictEq(toFullWidth("ｱｲｳｴｵ"), "アイウエオ");
+      assertStrictEq(toFullWidth("ｶｷｸｹｺ"), "カキクケコ");
+      assertStrictEq(toFullWidth("ｻｼｽｾｿ"), "サシスセソ");
+      assertStrictEq(toFullWidth("ﾀﾁﾂﾃﾄ"), "タチツテト");
+      assertStrictEq(toFullWidth("ﾅﾆﾇﾈﾉ"), "ナニヌネノ");
+      assertStrictEq(toFullWidth("ﾊﾋﾌﾍﾎ"), "ハヒフヘホ");
+      assertStrictEq(toFullWidth("ﾏﾐﾑﾒﾓ"), "マミムメモ");
+      assertStrictEq(toFullWidth("ﾔﾕﾖ"), "ヤユヨ");
+      assertStrictEq(toFullWidth("ﾗﾘﾙﾚﾛ"), "ラリルレロ");
+      assertStrictEq(toFullWidth("ﾜｦﾝ"), "ワヲン");
+      assertStrictEq(toFullWidth("ｧｨｩｪｫｯｬｭｮ"), "ァィゥェォッャュョ");
+      assertStrictEq(toFullWidth("ｶﾞｷﾞｸﾞｹﾞｺﾞ"), "ガギグゲゴ");
+      assertStrictEq(toFullWidth("ｻﾞｼﾞｽﾞｾﾞｿﾞ"), "ザジズゼゾ");
+      assertStrictEq(toFullWidth("ﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞ"), "ダヂヅデド");
+      assertStrictEq(toFullWidth("ﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞ"), "バビブベボ");
+      assertStrictEq(toFullWidth("ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ"), "パピプペポ");
+      assertStrictEq(toFullWidth("ｳﾞ"), "ヴ");
+      assertStrictEq(toFullWidth("ｰ"), "ー");
+      assertStrictEq(toFullWidth("･"), "・");
+      assertStrictEq(toFullWidth("｡"), "。");
+      assertStrictEq(toFullWidth("､"), "、");
+      assertStrictEq(toFullWidth("｢"), "「");
+      assertStrictEq(toFullWidth("｣"), "」");
     });
   });
 });
