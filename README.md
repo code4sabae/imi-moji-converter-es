@@ -62,7 +62,6 @@ GitHubからcloneします。
 
 ```
 $ git clone https://github.com/code4sabae/imi-moji-converter-es.git
-$ cd imi-moji-converter
 ```
 
 ## テスト
@@ -95,7 +94,7 @@ IMIMojiConverter.mjs : 関数本体
 
 ## 依存関係
 
-本ライブラリは <https://github.com/taisukef/moji> に依存します。
+本ライブラリは 半角全角変換ライブラリ[Moji.js](https://github.com/niwaringo/moji) を fork した [Moji.mjs](https://github.com/taisukef/moji) に依存します。
 
 ## 出典
 
